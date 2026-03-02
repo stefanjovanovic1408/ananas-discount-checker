@@ -36,7 +36,11 @@ def get_deal():
         # Wait up to 15 seconds for page to load and for the "Rođendanska" text to appear in the DOM
         wait = WebDriverWait(driver, 15)
         string_xpath_selector = "//*[contains(normalize-space(.), 'Rođendanska cena važi još')]/ancestor::a"
-        wait.until(EC.presence_of_element_located((By.XPATH, string_xpath_selector)))
+        try:
+            wait.until(EC.presence_of_element_located((By.XPATH, string_xpath_selector)))
+        except TimeoutException:
+            print("Timeout reached: No active deals right now.")
+            return None
 
         # Scrolling to the element so lazy-loaded images trigger
         product_element = driver.find_element(By.XPATH, string_xpath_selector)
