@@ -138,7 +138,7 @@ def send_deal_mail(deal_info, sender_email,sender_password, receiver_email):
     try:
         # Use Port 587 with STARTTLS instead of 465 SSL
         server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.set_debuglevel(1) # This will print the full conversation with Google in your logs
+        server.set_debuglevel(0) # Lower detail conversation with Google server
         server.starttls() # Secure the connection
         server.login(sender_email.strip(), sender_password.strip())
         server.send_message(msg)
@@ -158,10 +158,7 @@ if __name__ == "__main__":
         # ADDING TEMPORARY DEBUG LINE
         if not MY_EMAIL or not MY_PASSWORD:
             print(f"CRITICAL ERROR: Secrets not loaded! Email: {bool(MY_EMAIL)}, Pwd: {bool(MY_PASSWORD)}")
-        else:
-            # Print the length to see if there are extra characters
-            print(f"DEBUG: Email length: {len(MY_EMAIL)}, Pwd length: {len(MY_PASSWORD)}")
-
+        
         send_deal_mail(deal, MY_EMAIL, MY_PASSWORD, RECIPIENT)
     else:
         print("No active deal found at this moment.")
