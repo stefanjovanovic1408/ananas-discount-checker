@@ -1,4 +1,4 @@
-name: Ananas Daily Scraper
+name: Ananas Daily Scraper Test
 on:
   schedule:
     #This runs every day until 08. 03. 2026.
