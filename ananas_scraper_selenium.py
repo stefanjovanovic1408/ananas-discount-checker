@@ -157,7 +157,7 @@ if __name__ == "__main__":
 
         # ADDING TEMPORARY DEBUG LINE
         if not MY_EMAIL or not MY_APP_PWD:
-            print(f"CRITICAL ERROR: Secrets not loaded! Email: {bool(MY_EMAIL)}, Pwd: {bool(MY_APP_PWD)}")
+            print(f"CRITICAL ERROR: Secrets not loaded! Email: {bool(MY_EMAIL)}, Pwd: {bool(MY_PASSWORD)}")
         else:
             # Print the length to see if there are extra characters
             print(f"DEBUG: Email length: {len(MY_EMAIL)}, Pwd length: {len(MY_PASSWORD)}")
