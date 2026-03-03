@@ -151,12 +151,12 @@ if __name__ == "__main__":
     print("Scraping with Selenium started...")
     deal = get_deal()
     if deal:
-        MY_EMAIL = os.environ.get("SENDER_EMAIL")
+        MY_EMAIL = os.environ.get("EMAIL_SENDER")
         MY_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-        RECIPIENT = os.environ.get("RECEIVER_EMAIL")
+        RECIPIENT = os.environ.get("EMAIL_RECEIVER")
 
         # ADDING TEMPORARY DEBUG LINE
-        if not MY_EMAIL or not MY_APP_PWD:
+        if not MY_EMAIL or not MY_PASSWORD:
             print(f"CRITICAL ERROR: Secrets not loaded! Email: {bool(MY_EMAIL)}, Pwd: {bool(MY_PASSWORD)}")
         else:
             # Print the length to see if there are extra characters
