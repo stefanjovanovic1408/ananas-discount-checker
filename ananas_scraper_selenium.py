@@ -160,7 +160,7 @@ if __name__ == "__main__":
             print(f"CRITICAL ERROR: Secrets not loaded! Email: {bool(MY_EMAIL)}, Pwd: {bool(MY_APP_PWD)}")
         else:
             # Print the length to see if there are extra characters
-            print(f"DEBUG: Email length: {len(MY_EMAIL)}, Pwd length: {len(MY_APP_PWD)}")
+            print(f"DEBUG: Email length: {len(MY_EMAIL)}, Pwd length: {len(MY_PASSWORD)}")
 
         send_deal_mail(deal, MY_EMAIL, MY_PASSWORD, RECIPIENT)
     else:
