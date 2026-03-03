@@ -138,6 +138,7 @@ def send_deal_mail(deal_info, sender_email,sender_password, receiver_email):
     try:
         # Use Port 587 with STARTTLS instead of 465 SSL
         server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.set_debuglevel(1) # This will print the full conversation with Google in your logs
         server.starttls() # Secure the connection
         server.login(sender_email, sender_password)
         server.send_message(msg)
