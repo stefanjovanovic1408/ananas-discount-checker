@@ -136,10 +136,13 @@ def send_deal_mail(deal_info, sender_email,sender_password, receiver_email):
 
     #Sending the mail with all information
     try:
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
-            print("Email sent successfully.")
+        # Use Port 587 with STARTTLS instead of 465 SSL
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls() # Secure the connection
+        server.login(sender_email, sender_password)
+        server.send_message(msg)
+        server.quit()
+        print("Email sent successfully!")
     except Exception as e:
         print(f"Failed to send email: {e}")
 
