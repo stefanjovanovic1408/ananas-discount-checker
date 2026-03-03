@@ -140,7 +140,7 @@ def send_deal_mail(deal_info, sender_email,sender_password, receiver_email):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.set_debuglevel(0) # Lower detail conversation with Google server
         server.starttls() # Secure the connection
-        server.login(sender_email.strip(), sender_password.strip())
+        server.login(sender_email, sender_password)
         server.send_message(msg)
         server.quit()
         print("Email sent successfully!")
@@ -154,10 +154,6 @@ if __name__ == "__main__":
         MY_EMAIL = os.environ.get("EMAIL_SENDER")
         MY_PASSWORD = os.environ.get("EMAIL_PASSWORD")
         RECIPIENT = os.environ.get("EMAIL_RECEIVER")
-
-        # ADDING TEMPORARY DEBUG LINE
-        if not MY_EMAIL or not MY_PASSWORD:
-            print(f"CRITICAL ERROR: Secrets not loaded! Email: {bool(MY_EMAIL)}, Pwd: {bool(MY_PASSWORD)}")
         
         send_deal_mail(deal, MY_EMAIL, MY_PASSWORD, RECIPIENT)
     else:
