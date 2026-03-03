@@ -37,6 +37,6 @@ jobs:
       - name: Run Scraper
         env:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          SENDER_EMAIL: ${{ secrets.EMAIL_SENDER }}
-          RECEIVER_EMAIL: ${{ secrets.EMAIL_RECEIVER }}
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
         run: python ananas_scraper_selenium.py
